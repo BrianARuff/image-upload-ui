@@ -26,6 +26,7 @@ class App extends React.Component {
         .catch(err => console.log(err));
     };
     reader.readAsDataURL(file);
+    window.location.reload();
   };
 
   render() {
@@ -35,7 +36,7 @@ class App extends React.Component {
         <input onChange={this.upload} type="file" />
         <div>
           {this.state.images.map(item => {
-            return <img width="500px" height="500px" src={item.image} alt="item" />;
+            return <img key={item.id} width="500px" height="500px" src={item.image} alt="item" />;
           })}
         </div>
       </div>
