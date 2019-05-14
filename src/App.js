@@ -9,7 +9,7 @@ class App extends React.Component {
 
   componentDidMount() {
     axios
-      .get("http://www.localhost:9000/")
+      .get("https://bofa-imges.herokuapp.com/")
       .then(res => {
         this.setState({ images: res.data });
       })
@@ -22,7 +22,7 @@ class App extends React.Component {
     reader.onloadend = function() {
       console.log("RESULT", reader.result);
       axios
-        .post("http://www.localhost:9000/", { image: reader.result })
+        .post("https://bofa-imges.herokuapp.com/", { image: reader.result })
         .catch(err => console.log(err));
     };
     reader.readAsDataURL(file);
